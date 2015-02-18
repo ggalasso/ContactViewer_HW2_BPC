@@ -30,7 +30,7 @@ public class MainActivity extends ListActivity {
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
-    //test comment
+    //test comment4
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
