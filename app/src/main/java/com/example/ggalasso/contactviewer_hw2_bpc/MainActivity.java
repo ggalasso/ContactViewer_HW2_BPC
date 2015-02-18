@@ -2,6 +2,7 @@ package com.example.ggalasso.contactviewer_hw2_bpc;
 
 import android.app.ListActivity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -63,7 +64,12 @@ public class MainActivity extends ListActivity {
     @Override
     protected void onListItemClick(ListView l, View v, int position, long id) {
         Contact contact = (Contact)getListAdapter().getItem(position);
-        Toast.makeText(this, "Clicked " + contact.getName() + " (" + id + ")", Toast.LENGTH_LONG).show();
+        //Toast.makeText(this, "Clicked " + contact.getName() + " (" + id + ")", Toast.LENGTH_LONG).show();
+
+        //GG: Create Intent to switch to the contact detail screen. Clicking on the contact switches to the next screen.
+        //See here: http://developer.android.com/training/basics/firstapp/starting-activity.html
+        Intent i= new Intent(this, ContactDetails.class);
+        startActivity(i);
     }
 
     class ContactAdapter extends ArrayAdapter<Contact> {
