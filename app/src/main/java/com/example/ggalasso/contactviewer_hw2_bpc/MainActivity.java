@@ -25,6 +25,8 @@ public class MainActivity extends ListActivity {
 //test comment
     //comment from csadlo
 
+    //GG change
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
