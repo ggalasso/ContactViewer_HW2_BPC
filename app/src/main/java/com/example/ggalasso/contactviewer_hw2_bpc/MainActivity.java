@@ -23,6 +23,7 @@ public class MainActivity extends ListActivity {
         setListAdapter(new ContactAdapter(this, R.layout.contact_item, Contact.getAll()));
     }
 //test comment
+    //comment from csadlo
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
