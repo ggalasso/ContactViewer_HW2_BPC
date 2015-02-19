@@ -23,10 +23,9 @@ public class MainActivity extends ListActivity {
 
         setListAdapter(new ContactAdapter(this, R.layout.contact_item, Contact.getAll()));
     }
-//test comment
-    //comment from csadlo
 
-    //GG change
+    //test comment
+    //comment from csadlo
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -66,10 +65,19 @@ public class MainActivity extends ListActivity {
         Contact contact = (Contact)getListAdapter().getItem(position);
         //Toast.makeText(this, "Clicked " + contact.getName() + " (" + id + ")", Toast.LENGTH_LONG).show();
 
+        //GG: Store data to be passed into next activity into a bundle
+        //See: http://www.101apps.co.za/articles/passing-data-between-activities.html
+        Bundle contactInfo = new Bundle();
+        contactInfo.putString("name", contact.getName());
+        contactInfo.putString("title", contact.getTitle());
+        contactInfo.putString("phone", contact.getPhone());
+
         //GG: Create Intent to switch to the contact detail screen. Clicking on the contact switches to the next screen.
         //See here: http://developer.android.com/training/basics/firstapp/starting-activity.html
-        Intent i= new Intent(this, ContactDetails.class);
-        startActivity(i);
+
+        Intent intent = new Intent(this, ContactDetails.class);
+        intent.putExtras(contactInfo);
+        startActivity(intent);
     }
 
     class ContactAdapter extends ArrayAdapter<Contact> {

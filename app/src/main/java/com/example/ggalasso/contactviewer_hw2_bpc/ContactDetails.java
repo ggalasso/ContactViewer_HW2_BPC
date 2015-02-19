@@ -1,9 +1,16 @@
 package com.example.ggalasso.contactviewer_hw2_bpc;
 
+import android.content.Intent;
+import android.nfc.Tag;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+import android.widget.Toast;
 
 
 public class ContactDetails extends ActionBarActivity {
@@ -12,6 +19,23 @@ public class ContactDetails extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_contact_details);
+        Intent intentExtras = getIntent();
+        Bundle extrasBundle = intentExtras.getExtras();
+        if (! extrasBundle.isEmpty()) {
+
+            String contactName = extrasBundle.getString("name");
+            String contactTitle = extrasBundle.getString("title");
+            String contactPhone = extrasBundle.getString("phone");
+
+            TextView nameView = (TextView)findViewById(R.id.contact_details_name);
+            TextView titleView = (TextView)findViewById(R.id.contact_details_title);
+            TextView phoneView = (TextView)findViewById(R.id.contact_details_phone);
+            nameView.setText(extrasBundle.getString("name"));
+            titleView.setText(extrasBundle.getString("title"));
+            phoneView.setText(extrasBundle.getString("phone"));
+
+            Log.i("ContactDetails", "Name: " + contactName + " Title: " + contactTitle + " Phone: " + contactPhone);
+        }
     }
 
 
@@ -36,4 +60,5 @@ public class ContactDetails extends ActionBarActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
 }
