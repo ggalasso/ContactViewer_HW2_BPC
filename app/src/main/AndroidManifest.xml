@@ -2,11 +2,14 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.ggalasso.contactviewer_hw2_bpc" >
 
+    <uses-sdk android:minSdkVersion="19"
+        android:targetSdkVersion="21"/>
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme" >
+        android:theme="@style/HoloTheme" >
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name" >
@@ -18,8 +21,15 @@
         </activity>
         <activity
             android:name=".ContactDetails"
-            android:label="@string/title_activity_contact_details" >
+            android:label="@string/title_activity_contact_details"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/HoloTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+
         </activity>
     </application>
+
 
 </manifest>

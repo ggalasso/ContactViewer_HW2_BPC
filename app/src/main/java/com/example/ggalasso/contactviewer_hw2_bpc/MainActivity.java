@@ -20,20 +20,23 @@ public class MainActivity extends ListActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         setListAdapter(new ContactAdapter(this, R.layout.contact_item, Contact.getAll()));
+
+        //display the icon on ActionBar
+        //getActionBar().setDisplayShowHomeEnabled(true);
+        //getActionBar().setIcon(R.drawable.ic_launcher);
     }
 
-    //test comment
-    //comment from csadlo
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
+
+
         return true;
     }
-    //test comment4
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
