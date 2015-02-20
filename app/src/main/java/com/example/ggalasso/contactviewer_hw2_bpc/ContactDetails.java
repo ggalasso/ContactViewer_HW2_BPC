@@ -20,12 +20,7 @@ public class ContactDetails extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_contact_details);
 
-        //display the  icon on ActionBar
-        getActionBar().setIcon(R.drawable.ic_action_edit);
-        getActionBar().setDisplayHomeAsUpEnabled(true);
-
-
-        Intent intentExtras = getIntent();
+       Intent intentExtras = getIntent();
         Bundle extrasBundle = intentExtras.getExtras();
         if (! extrasBundle.isEmpty()) {
 
@@ -41,6 +36,11 @@ public class ContactDetails extends ActionBarActivity {
             phoneView.setText(extrasBundle.getString("phone"));
 
             Log.i("ContactDetails", "Name: " + contactName + " Title: " + contactTitle + " Phone: " + contactPhone);
+
+            //display the up/back icons on ActionBar
+            getActionBar().setDisplayHomeAsUpEnabled(true);
+            //getActionBar().setIcon(R.drawable.ic_action_edit);
+
         }
     }
 

@@ -1,10 +1,12 @@
 package com.example.ggalasso.contactviewer_hw2_bpc;
 
+import android.app.ActionBar;
 import android.app.ListActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +14,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.support.v7.app.ActionBarActivity;
 
 
 public class MainActivity extends ListActivity {
@@ -22,18 +25,16 @@ public class MainActivity extends ListActivity {
         setContentView(R.layout.activity_main);
         setListAdapter(new ContactAdapter(this, R.layout.contact_item, Contact.getAll()));
 
-        //display the icon on ActionBar
-        //getActionBar().setDisplayShowHomeEnabled(true);
-        //getActionBar().setIcon(R.drawable.ic_launcher);
+
+
     }
 
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-
-
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_main, menu);
         return true;
     }
 
@@ -42,16 +43,27 @@ public class MainActivity extends ListActivity {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        switch (item.getItemId()) {
+            case R.id.action_add:
+                openAdd();
+                return true;
+            case R.id.action_search:
+                //openSearch();
+                return true;
+            case R.id.action_settings:
+                //openSettings();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
         }
 
-        return super.onOptionsItemSelected(item);
+
     }
 
+    private void openAdd(){
+        Intent intent = new Intent(this, ContactDetails.class);
+        startActivity(intent);
+    }
     /**
      * This method will be called when an item in the list is selected.
      * Subclasses should override. Subclasses can call
