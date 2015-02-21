@@ -24,19 +24,24 @@ public class ContactDetails extends Activity {
        Intent intentExtras = getIntent();
         Bundle extrasBundle = intentExtras.getExtras();
         if (! extrasBundle.isEmpty()) {
-
+            int id = extrasBundle.getInt("id");
             String contactName = extrasBundle.getString("name");
             String contactTitle = extrasBundle.getString("title");
             String contactPhone = extrasBundle.getString("phone");
 
-            TextView nameView = (TextView)findViewById(R.id.contact_details_name);
-            TextView titleView = (TextView)findViewById(R.id.contact_details_title);
-            TextView phoneView = (TextView)findViewById(R.id.contact_details_phone);
-            nameView.setText(extrasBundle.getString("name"));
-            titleView.setText(extrasBundle.getString("title"));
-            phoneView.setText(extrasBundle.getString("phone"));
+            //TextView nameView = (TextView)findViewById(R.id.contact_details_name);
+            //TextView titleView = (TextView)findViewById(R.id.contact_details_title);
+            //TextView phoneView = (TextView)findViewById(R.id.contact_details_phone);
+            //String name = getIntent().getExtras().getString("name");
+            ((TextView) findViewById(R.id.contact_details_name)).setText(contactName);
+            ((TextView) findViewById(R.id.contact_details_title)).setText(contactTitle);
+            ((TextView) findViewById(R.id.contact_details_phone)).setText(contactPhone);
+            //nameView.setText(extrasBundle.getString("name"));
+            //titleView.setText(extrasBundle.getString("title"));
+            //phoneView.setText(extrasBundle.getString("phone"));
 
-            Log.i("ContactDetails", "Name: " + contactName + " Title: " + contactTitle + " Phone: " + contactPhone);
+
+            Log.i("ContactDetails", "ID: " + id + " Name: " + contactName + " Title: " + contactTitle + " Phone: " + contactPhone);
 
             //display the up/back icons on ActionBar
             //getActionBar().setDisplayHomeAsUpEnabled(true);

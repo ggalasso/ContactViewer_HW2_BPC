@@ -1,23 +1,24 @@
 package com.example.ggalasso.contactviewer_hw2_bpc;
 //Pankaj
 /**
- * Created byP ggalasso on 2/13/15.
+ * Created by ggalasso on 2/13/15.
  */
 public class Contact {
     public static Contact[] getAll() {
         return new Contact[] {
-            new Contact("Malcolm Reynolds", "Captain", "123-456-7890"),
-            new Contact("Tom", "Doctor", "123-456-7300"),
-            new Contact("Rob", "Pirate", "123-456-7200"),
-            new Contact("Bob Doe", "Cop", "123-456-7100"),
-            new Contact("Tommy Malone", "Engineer", "123-456-7400")
+            new Contact("Malcolm Reynolds", "Captain", "123-456-7890", 2),
+            new Contact("Tom", "Doctor", "123-456-7300", 2),
+            new Contact("Rob", "Pirate", "123-456-7200", 3),
+            new Contact("Bob Doe", "Cop", "123-456-7100", 4),
+            new Contact("Tommy Malone", "Engineer", "123-456-7400", 5)
         };
     }
 
-    public Contact(String name, String title, String phone) {
+    public Contact(String name, String title, String phone, int id) {
         this.name = name;
         this.title = title;
         this.phone = phone;
+        this.id = id;
     }
 
     private String name;
@@ -25,6 +26,15 @@ public class Contact {
     private String email;
     private String phone;
     private String twitterId;
+    private int id;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getName() {
         return name;

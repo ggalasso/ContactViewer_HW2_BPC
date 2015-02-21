@@ -1,6 +1,6 @@
 <resources>
 
-    <style name="AppTheme" parent="android:style/Widget.Holo.Light">
+    <style name="AppTheme" parent="android:Theme.Holo.Light">
     <!--<style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">-->
         <!-- Customize your theme here. -->
         <!--<item name="android:actionBarStyle">@style/MyActionBar</item>-->
