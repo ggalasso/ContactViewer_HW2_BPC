@@ -2,7 +2,7 @@
 
     <!-- Base application theme. -->
 
-    <style name="AppTheme" parent="Widget.AppCompat.Light.ActionBar.Solid.Inverse">
+    <style name="AppTheme" parent="@android:style/Widget.Holo.Light.ActionBar.Solid.Inverse">
         <!-- Customize your theme here. -->
         <!--<item name="android:actionBarStyle">@style/MyActionBar</item>-->
     </style>

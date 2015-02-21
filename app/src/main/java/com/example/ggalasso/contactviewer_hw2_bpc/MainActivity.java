@@ -1,6 +1,6 @@
 package com.example.ggalasso.contactviewer_hw2_bpc;
 
-import android.app.ActionBar;
+//import android.app.ActionBar;
 import android.app.ListActivity;
 import android.content.Context;
 import android.content.Intent;
@@ -13,8 +13,8 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
-import android.support.v7.app.ActionBarActivity;
+//import android.widget.Toast;
+//import android.support.v7.app.ActionBarActivity;
 
 
 public class MainActivity extends ListActivity {
@@ -24,9 +24,6 @@ public class MainActivity extends ListActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         setListAdapter(new ContactAdapter(this, R.layout.contact_item, Contact.getAll()));
-
-
-
     }
 
 
@@ -35,6 +32,7 @@ public class MainActivity extends ListActivity {
         // Inflate the menu; this adds items to the action bar if it is present.
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu_main, menu);
+        //restoreactionbar()
         return true;
     }
 
@@ -56,8 +54,6 @@ public class MainActivity extends ListActivity {
             default:
                 return super.onOptionsItemSelected(item);
         }
-
-
     }
 
     private void openAdd(){
