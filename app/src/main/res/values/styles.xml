@@ -1,13 +1,13 @@
 <resources>
 
-    <!-- Base application theme. -->
-
-    <style name="AppTheme" parent="@android:style/Widget.Holo.Light.ActionBar.Solid.Inverse">
+    <style name="AppTheme" parent="android:style/Widget.Holo.Light">
+    <!--<style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">-->
         <!-- Customize your theme here. -->
         <!--<item name="android:actionBarStyle">@style/MyActionBar</item>-->
     </style>
 
     <!-- ActionBar styles -->
+    <!--
     <style name="MyActionBar"
         parent="@android:style/Widget.Holo.Light.ActionBar.Solid.Inverse">
         <item name="android:background">@color/golden_brown</item>
@@ -15,5 +15,6 @@
         <item name="android:displayOptions">showTitle|showHome</item>
 
     </style>
+    -->
 
 </resources>

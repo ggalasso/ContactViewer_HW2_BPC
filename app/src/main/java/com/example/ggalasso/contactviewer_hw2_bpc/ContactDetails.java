@@ -1,19 +1,20 @@
 package com.example.ggalasso.contactviewer_hw2_bpc;
 
+import android.app.Activity;
 import android.content.Intent;
-import android.nfc.Tag;
-import android.support.v7.app.ActionBarActivity;
+//import android.nfc.Tag;
+//import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
+//import android.view.View;
+//import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
+//import android.widget.Toast;
 
 
-public class ContactDetails extends ActionBarActivity {
+public class ContactDetails extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +39,7 @@ public class ContactDetails extends ActionBarActivity {
             Log.i("ContactDetails", "Name: " + contactName + " Title: " + contactTitle + " Phone: " + contactPhone);
 
             //display the up/back icons on ActionBar
-            getActionBar().setDisplayHomeAsUpEnabled(true);
+            //getActionBar().setDisplayHomeAsUpEnabled(true);
             //getActionBar().setIcon(R.drawable.ic_action_edit);
 
         }
