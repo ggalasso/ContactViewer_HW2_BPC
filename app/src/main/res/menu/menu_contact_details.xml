@@ -7,17 +7,17 @@
         android:title="@string/action_edit"
         android:orderInCategory="200"
         android:icon="@drawable/ic_action_edit"
-        app:showAsAction="always" />
+        android:showAsAction="always" />
 
     <item android:id="@+id/action_remove"
         android:title="@string/action_remove"
         android:orderInCategory="300"
         android:icon="@drawable/ic_action_remove"
-        app:showAsAction="always" />
+        android:showAsAction="always" />
 
     <item android:id="@+id/action_settings"
         android:title="@string/action_settings"
         android:orderInCategory="100"
-        app:showAsAction="never" />
+        android:showAsAction="never" />
 
 </menu>
