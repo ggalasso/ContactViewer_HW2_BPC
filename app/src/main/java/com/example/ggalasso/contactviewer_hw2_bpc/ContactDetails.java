@@ -23,7 +23,7 @@ public class ContactDetails extends Activity {
 
        Intent intentExtras = getIntent();
         Bundle extrasBundle = intentExtras.getExtras();
-        if (! extrasBundle.isEmpty()) {
+        if (!(extrasBundle == null) && !(extrasBundle.isEmpty())) {
             int id = extrasBundle.getInt("id");
             String contactName = extrasBundle.getString("name");
             String contactTitle = extrasBundle.getString("title");
@@ -44,8 +44,8 @@ public class ContactDetails extends Activity {
             Log.i("ContactDetails", "ID: " + id + " Name: " + contactName + " Title: " + contactTitle + " Phone: " + contactPhone);
 
             //display the up/back icons on ActionBar
-            //getActionBar().setDisplayHomeAsUpEnabled(true);
-            //getActionBar().setIcon(R.drawable.ic_action_edit);
+            getActionBar().setDisplayHomeAsUpEnabled(true);
+
 
         }
     }
