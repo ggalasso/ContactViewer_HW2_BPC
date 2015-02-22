@@ -5,17 +5,15 @@
     <item android:id="@+id/action_add"
         android:title="@string/action_add"
         android:icon="@drawable/ic_action_new"
-        android:orderInCategory="3"
-        app:showAsAction="always" />
+        android:showAsAction="always" />
 
     <item android:id="@+id/action_search"
         android:title="@string/action_search"
         android:icon="@drawable/ic_action_search"
-        android:orderInCategory="2"
-        app:showAsAction="always" />
+        android:showAsAction="always" />
 
     <item android:id="@+id/action_settings"
         android:title="@string/action_settings"
-        android:orderInCategory="1"
-        app:showAsAction="never" />
+        android:orderInCategory="100"
+        android:showAsAction="never" />
 </menu>

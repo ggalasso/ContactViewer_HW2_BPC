@@ -23,7 +23,7 @@ public class ContactDetails extends Activity {
 
        Intent intentExtras = getIntent();
         Bundle extrasBundle = intentExtras.getExtras();
-        if (! extrasBundle.isEmpty()) {
+        if (extrasBundle!=null && !extrasBundle.isEmpty()) {
             int id = extrasBundle.getInt("id");
             String contactName = extrasBundle.getString("name");
             String contactTitle = extrasBundle.getString("title");

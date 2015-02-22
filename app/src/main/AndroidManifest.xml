@@ -2,9 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.ggalasso.contactviewer_hw2_bpc" >
 
-    <uses-sdk
+   <!-- <uses-sdk
         android:minSdkVersion="19"
-        android:targetSdkVersion="19" />
+        android:targetSdkVersion="19" />-->
 
     <uses-permission android:name="android.permissions.INTERNET" />
 
