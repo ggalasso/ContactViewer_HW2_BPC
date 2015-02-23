@@ -2,7 +2,6 @@ package com.example.ggalasso.contactviewer_hw2_bpc;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -12,7 +11,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-import com.google.gson.GsonBuilder;
 import com.google.gson.Gson;
 
 import org.apache.http.HttpEntity;
@@ -104,7 +102,7 @@ public class EditContact extends Activity {
                 String textSocialType = editSocialType.getText().toString();
                 String textSocial = editSocial.getText().toString();
 
-                Log.i("Edit Contact", "ID: " + "" +
+                Log.i("EditContact.java", "Saving Contact... ID: " + "" +
                         " First Name: " + textFirstName +
                         " Last Name: " + textLastName +
                         " Title: " + textTitle +

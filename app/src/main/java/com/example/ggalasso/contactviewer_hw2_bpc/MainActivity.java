@@ -1,12 +1,10 @@
 package com.example.ggalasso.contactviewer_hw2_bpc;
 
-import android.app.ActionBar;
 import android.app.ListActivity;
 import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.view.MenuItemCompat;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -17,9 +15,8 @@ import android.widget.ListView;
 import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toast;
-import java.util.ArrayList;
-//import android.widget.Toast;
 
+import java.util.ArrayList;
 
 
 public class MainActivity extends ListActivity {
@@ -93,7 +90,7 @@ public class MainActivity extends ListActivity {
     @Override
     protected void onListItemClick(ListView l, View v, int position, long id) {
         Contact contact = (Contact)getListAdapter().getItem(position);
-        //Toast.makeText(this, "Clicked " + contact.getName() + " (" + id + ")", Toast.LENGTH_LONG).show();
+        Toast.makeText(this, "Clicked " + contact.getFirstName() + " " + contact.getLastName() + " (" + id + ")", Toast.LENGTH_LONG).show();
 
         //GG: Store data to be passed into next activity into a bundle
         //See: http://www.101apps.co.za/articles/passing-data-between-activities.html
@@ -106,6 +103,7 @@ public class MainActivity extends ListActivity {
         intent.putExtras(contactInfo);
         startActivity(intent);
     }
+
 
     class ContactAdapter extends ArrayAdapter<Contact> {
 
