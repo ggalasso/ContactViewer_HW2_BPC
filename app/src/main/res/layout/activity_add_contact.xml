@@ -40,11 +40,12 @@
         android:editable="true" />
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Phone"
         android:id="@+id/phone_label"
+        android:textColorHighlight="@color/dark_gray"
         android:layout_below="@id/title_field"
         android:layout_alignParentStart="true"
         android:layout_alignEnd="@id/title_field" />
@@ -53,19 +54,51 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="phone"
-        android:ems="10"
+        android:ems="5"
         android:id="@+id/phone_field"
         android:layout_below="@id/phone_label"
-        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
         android:editable="true" />
-
-    <TextView
+    <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:inputType="phone"
+        android:ems="10"
+        android:id="@+id/phone_field2"
+        android:layout_below="@id/phone_label"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="32dp"
+        android:editable="true" />
+
+    <ImageButton
+        android:id="@+id/item_remove_phone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/phone_field2"
+        android:layout_alignParentRight="true"
+        android:src="@drawable/ic_action_remove"
+        android:background="@color/red_orange"
+        android:layout_marginLeft="26dp"
+        android:layout_marginBottom="6dp"
+        />
+    <ImageButton
+        android:id="@+id/item_add_phone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/item_remove_phone"
+        android:layout_alignParentRight="true"
+        android:src="@drawable/ic_action_new"
+        android:background="@color/green_peas"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColorHighlight="@color/dark_gray"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Email"
         android:id="@+id/email_label"
-        android:layout_below="@id/phone_field"
+        android:layout_below="@id/item_add_phone"
         android:layout_alignParentStart="true"
         android:layout_alignEnd="@+id/phone_field" />
 
@@ -73,30 +106,92 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textEmailAddress"
-        android:ems="10"
+        android:ems="5"
         android:id="@+id/email_field"
         android:layout_below="@id/email_label"
-        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
         android:editable="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Social"
-        android:id="@+id/social_label"
-        android:layout_below="@id/email_field"
-        android:layout_alignParentStart="true"
-        android:layout_alignEnd="@id/email_field" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:inputType="textEmailAddress"
+        android:ems="10"
+        android:id="@+id/email_field2"
+        android:layout_below="@id/email_label"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="32dp"
+        android:editable="true" />
+
+    <ImageButton
+        android:id="@+id/item_remove_email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/email_field2"
+        android:layout_alignParentRight="true"
+        android:src="@drawable/ic_action_remove"
+        android:background="@color/red_orange"
+        android:layout_marginLeft="26dp"
+        android:layout_marginBottom="6dp"
+        />
+    <ImageButton
+        android:id="@+id/item_add_email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/item_remove_email"
+        android:layout_alignParentRight="true"
+        android:src="@drawable/ic_action_new"
+        android:background="@color/green_peas"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Social"
+        android:id="@+id/social_label"
+        android:layout_below="@id/item_add_email"
+        android:layout_alignParentStart="true"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="5"
         android:id="@+id/social_field"
         android:layout_below="@id/social_label"
-        android:layout_alignParentStart="true"
-        android:layout_alignEnd="@id/social_label"
+        android:layout_alignParentLeft="true"
         android:editable="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:id="@+id/social_field2"
+        android:layout_below="@id/social_label"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="32dp"
+        android:editable="true" />
+
+    <ImageButton
+        android:id="@+id/item_remove_social"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/social_field2"
+        android:layout_alignParentRight="true"
+        android:src="@drawable/ic_action_remove"
+        android:background="@color/red_orange"
+        android:layout_marginLeft="26dp"
+        android:layout_marginBottom="6dp"
+        />
+    <ImageButton
+        android:id="@+id/item_add_social"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/item_remove_social"
+        android:layout_alignParentRight="true"
+        android:src="@drawable/ic_action_new"
+        android:background="@color/green_peas"
+        />
 
 
     <Button
@@ -105,33 +200,36 @@
         android:text="Cancel"
         android:id="@+id/Cancel"
         android:textStyle="bold"
-        android:textSize="32sp"
+        android:textSize="22dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:paddingTop="18dp"
-        android:paddingRight="60dp"
-        android:paddingBottom="18dp"
-        android:paddingLeft="12dp"
+        android:paddingRight="14dp"
+        android:paddingLeft="14dp"
         android:layout_marginRight="24dp"
-        android:background="#ff0000"
+        android:textAlignment="center"
+        android:background="@color/lava"
+        android:layout_marginTop="25dp"
+        android:layout_marginLeft="55dp"
         />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Save"
+        android:text="Save  "
         android:id="@+id/Save"
         android:textStyle="bold"
-        android:textSize="32sp"
+        android:textSize="22dp"
         android:layout_alignBottom="@id/social_field"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
-        android:paddingTop="18dp"
-        android:paddingRight="80dp"
-        android:paddingLeft="20dp"
-        android:paddingBottom="18dp"
-        android:layout_marginLeft="18dp"
-        android:background="#00ff00" />
+        android:paddingRight="14dp"
+        android:paddingLeft="14dp"
+
+        android:layout_marginLeft="24dp"
+        android:textAlignment="center"
+        android:background="@color/green_apple"
+        android:layout_marginTop="25dp"
+        android:layout_marginRight="75dp"/>
 
 
 
