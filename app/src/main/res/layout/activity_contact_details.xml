@@ -45,10 +45,11 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:background="@color/light_gray"
+        android:textStyle="bold"
+        android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Phone"
         android:id="@+id/contact_details_phone_label"
-        android:textColorHighlight="@color/dark_gray"
         android:layout_below="@id/contact_details_title_field"
         android:layout_alignParentStart="true"
         android:layout_alignEnd="@id/contact_details_title_field" />
@@ -77,13 +78,13 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColorHighlight="@color/dark_gray"
-        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:background="@color/light_gray"
+        android:textStyle="bold"
+        android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Email"
         android:id="@+id/contact_details_email_label"
         android:layout_below="@id/contact_details_phone_field"
-        android:layout_alignParentStart="true"
-        android:layout_alignEnd="@+id/contact_details_phone_field" />
+        android:layout_alignParentStart="true" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -111,7 +112,9 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:background="@color/light_gray"
+        android:textStyle="bold"
+        android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Social"
         android:id="@+id/contact_details_social_label"
         android:layout_below="@id/contact_details_email_field"
