@@ -11,5 +11,6 @@
     <string name="title_activity_contact_details">All Contacts</string>
     <string name="title_activity_add_contact">New Contact</string>
     <string name="title_activity_edit_contact">Edit Contact</string>
+    <string name="search_hint">Search Contacts</string>
 
 </resources>
