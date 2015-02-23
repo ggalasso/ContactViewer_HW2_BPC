@@ -104,5 +104,6 @@
         android:id="@+id/contact_person"
         android:src="@drawable/ic_action_person"/>
 
+
 </RelativeLayout>
 
