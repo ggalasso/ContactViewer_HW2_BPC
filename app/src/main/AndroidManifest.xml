@@ -2,9 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.ggalasso.contactviewer_hw2_bpc" >
 
-   <!-- <uses-sdk
+    <!--
+        <uses-sdk
         android:minSdkVersion="19"
-        android:targetSdkVersion="19" />-->
+        android:targetSdkVersion="19" />
+    -->
 
     <uses-permission android:name="android.permissions.INTERNET" />
 
@@ -33,10 +35,18 @@
         <activity
             android:name=".AddContact"
             android:label="@string/title_activity_add_contact"
-            android:parentActivityName=".MainActivity">
+            android:parentActivityName=".MainActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
+        </activity>
+        <activity
+            android:name=".EditContact"
+            android:label="@string/title_activity_edit_contact"
+            android:parentActivityName=".ContactDetails" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ContactDetails" />
         </activity>
     </application>
 

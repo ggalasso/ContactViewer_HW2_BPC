@@ -12,7 +12,7 @@
     <item android:id="@+id/action_remove"
         android:title="@string/action_remove"
         android:orderInCategory="300"
-        android:icon="@drawable/ic_action_remove"
+        android:icon="@drawable/ic_action_discard"
         android:showAsAction="always" />
 
     <item android:id="@+id/action_settings"

@@ -47,11 +47,11 @@ public class ContactManager {
     }
 
     private ArrayList<Contact> createContacts() {
-        contactList.add(new Contact("Malcolm Reynolds", "Captain", "123-456-7890", 1));
-        contactList.add(new Contact("Tom", "Doctor", "123-456-7300", 2));
-        contactList.add(new Contact("Rob", "Pirate", "123-456-7200", 3));
-        contactList.add(new Contact("Bob Doe", "Cop", "123-456-7100", 4));
-        contactList.add(new Contact("Tommy Malone", "Engineer", "123-456-7400", 5));
+        contactList.add(new Contact("Malcolm","Reynolds", "Captain", "Mobile","123-456-7890","","m123.hotmail","Twitter","MRey", 1));
+        contactList.add(new Contact("Tom", "","Doctor", "Office","123-456-7300","","","","", 2));
+        contactList.add(new Contact("Rob","", "Pirate", "Home","123-456-7200","","","","", 3));
+        contactList.add(new Contact("Bob", "Doe","Cop", "Mobile", "123-456-7100","","","","", 4));
+        contactList.add(new Contact("Tommy","Malone","Engineer","Office", "123-456-7400","","","","", 5));
         return contactList;
     }
 

@@ -2,6 +2,7 @@ package com.example.ggalasso.contactviewer_hw2_bpc;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -16,15 +17,15 @@ public class AddContact extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_contact);
 
-        final EditText editFirstName = (EditText) findViewById(R.id.first_name_field);
-        final EditText editLastName = (EditText) findViewById(R.id.last_name_field);
-        final EditText editTitle = (EditText) findViewById(R.id.title_field);
-        final EditText editPhoneType = (EditText) findViewById(R.id.phone_field);
-        final EditText editPhoneNumber = (EditText) findViewById(R.id.phone_field2);
-        final EditText editEmailType = (EditText) findViewById(R.id.email_field);
-        final EditText editEmailAddress = (EditText) findViewById(R.id.email_field2);
-        final EditText editSocialType = (EditText) findViewById(R.id.social_field);
-        final EditText editSocial = (EditText) findViewById(R.id.social_field2);
+        final EditText addFirstName = (EditText) findViewById(R.id.first_name_field);
+        final EditText addLastName = (EditText) findViewById(R.id.last_name_field);
+        final EditText addTitle = (EditText) findViewById(R.id.title_field);
+        final EditText addPhoneType = (EditText) findViewById(R.id.phone_field);
+        final EditText addPhoneNumber = (EditText) findViewById(R.id.phone_field2);
+        final EditText addEmailType = (EditText) findViewById(R.id.email_field);
+        final EditText addEmailAddress = (EditText) findViewById(R.id.email_field2);
+        final EditText addSocialType = (EditText) findViewById(R.id.social_field);
+        final EditText addSocial = (EditText) findViewById(R.id.social_field2);
 
 
         final Button buttonSave = (Button) findViewById(R.id.Save);
@@ -34,15 +35,16 @@ public class AddContact extends Activity {
             @Override
             public void onClick(View v) {
 
-                String textFirstName = editFirstName.getText().toString();
-                String textLastName = editLastName.getText().toString();
-                String textTitle = editTitle.getText().toString();
-                String textPhoneType = editPhoneType.getText().toString();
-                String textPhoneNumber = editPhoneNumber.getText().toString();
-                String textEmailType = editEmailType.getText().toString();
-                String textEmailAddress = editEmailAddress.getText().toString();
-                String textSocialType = editSocialType.getText().toString();
-                String textSocial = editSocial.getText().toString();
+                String textFirstName = addFirstName.getText().toString();
+                String textLastName = addLastName.getText().toString();
+                String textTitle = addTitle.getText().toString();
+                String textPhoneType = addPhoneType.getText().toString();
+                String textPhoneNumber = addPhoneNumber.getText().toString();
+                String textEmailType = addEmailType.getText().toString();
+                String textEmailAddress = addEmailAddress.getText().toString();
+                String textSocialType = addSocialType.getText().toString();
+                String textSocial = addSocial.getText().toString();
+
 
                 }
         });
@@ -51,15 +53,15 @@ public class AddContact extends Activity {
             @Override
             public void onClick(View v) {
 
-                editFirstName.setText("");
-                editLastName.setText("");
-                editTitle.setText("");
-                editPhoneType.setText("");
-                editPhoneNumber.setText("");
-                editEmailType.setText("");
-                editEmailAddress.setText("");
-                editSocialType.setText("");
-                editSocial.setText("");
+                addFirstName.setText("");
+                addLastName.setText("");
+                addTitle.setText("");
+                addPhoneType.setText("");
+                addPhoneNumber.setText("");
+                addEmailType.setText("");
+                addEmailAddress.setText("");
+                addSocialType.setText("");
+                addSocial.setText("");
 
             }
         });

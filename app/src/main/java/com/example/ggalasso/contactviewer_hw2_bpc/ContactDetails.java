@@ -28,14 +28,24 @@ public class ContactDetails extends Activity {
             ContactManager cm = ContactManager.getInstance(this);
             Contact contact = cm.getContactById(id);
 
-            ((TextView) findViewById(R.id.contact_details_name)).setText(contact.getName());
-            ((TextView) findViewById(R.id.contact_details_title)).setText(contact.getTitle());
-            ((TextView) findViewById(R.id.contact_details_phone)).setText(contact.getPhone());
+            ((TextView) findViewById(R.id.contact_details_first_name_field)).setText(contact.getFirstName());
+            ((TextView) findViewById(R.id.contact_details_last_name_field)).setText(contact.getLastName());
+            ((TextView) findViewById(R.id.contact_details_title_field)).setText(contact.getContactTitle());
+            ((TextView) findViewById(R.id.contact_details_phone_field)).setText(contact.getPhoneType());
+            ((TextView) findViewById(R.id.contact_details_phone_field2)).setText(contact.getPhoneNumber());
+            ((TextView) findViewById(R.id.contact_details_email_field)).setText(contact.getEmailType());
+            ((TextView) findViewById(R.id.contact_details_email_field2)).setText(contact.getEmailAdd());
+            ((TextView) findViewById(R.id.contact_details_social_field)).setText(contact.getSocialType());
+            ((TextView) findViewById(R.id.contact_details_social_field2)).setText(contact.getSocial());
 
-            Log.i("ContactDetails", "ID: " + id + " Name: " + contact.getName() + " Title: " + contact.getTitle()+ " Phone: " + contact.getPhone());
+            Log.i("ContactDetails", "ID: " + id +
+                    " First Name: " + contact.getFirstName() +
+                    " Last Name: " + contact.getLastName() +
+                    " Title: " + contact.getContactTitle() +
+                    " Phone: " + contact.getPhoneNumber());
 
             //display the up/back icons on ActionBar
-            getActionBar().setDisplayHomeAsUpEnabled(true);
+            //getActionBar().setDisplayHomeAsUpEnabled(true);
 
 
         }
@@ -57,7 +67,9 @@ public class ContactDetails extends Activity {
 
         switch (item.getItemId()) {
             case R.id.action_edit:
-                //openEdit();
+                openEdit();
+                return true;
+            case R.id.action_remove:
                 return true;
             case R.id.action_settings:
                 //openSettings();
@@ -66,5 +78,15 @@ public class ContactDetails extends Activity {
                 return super.onOptionsItemSelected(item);
         }
     }
+    private void openEdit(){
 
+        ContactManager cm = ContactManager.getInstance(this);
+        Contact contact = cm.getContactById(1);
+        Bundle contactInfo = new Bundle();
+        contactInfo.putInt("id", contact.getId());
+
+        Intent intent = new Intent(this, EditContact.class);
+        intent.putExtras(contactInfo);
+        startActivity(intent);
+    }
 }

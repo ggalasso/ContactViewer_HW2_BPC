@@ -113,9 +113,9 @@ public class MainActivity extends ListActivity {
             TextView titleView = (TextView)view.findViewById(R.id.item_title);
             TextView phoneView = (TextView)view.findViewById(R.id.item_phone);
 
-            nameView.setText(contact.getName());
-            titleView.setText(contact.getTitle());
-            phoneView.setText(contact.getPhone());
+            nameView.setText(contact.getFirstName()+ " " + contact.getLastName());
+            titleView.setText(contact.getContactTitle());
+            phoneView.setText(contact.getPhoneNumber());
 
             return view;
         }
