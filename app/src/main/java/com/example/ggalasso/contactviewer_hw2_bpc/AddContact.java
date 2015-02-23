@@ -45,6 +45,14 @@ public class AddContact extends Activity {
                 String textSocialType = addSocialType.getText().toString();
                 String textSocial = addSocial.getText().toString();
 
+                Log.i("Add Contact", "ID: " + "" +
+                        " First Name: " + textFirstName +
+                        " Last Name: " + textLastName +
+                        " Title: " + textTitle +
+                        " Phone: " + textPhoneType + "-" + textPhoneNumber +
+                        " Email:" + textEmailType + "-" + textEmailAddress +
+                        "Social:" + textSocialType + "-" + textSocial);
+
 
                 }
         });

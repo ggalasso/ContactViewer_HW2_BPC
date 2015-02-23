@@ -15,6 +15,7 @@ import android.widget.TextView;
 
 public class EditContact extends Activity {
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,6 +25,7 @@ public class EditContact extends Activity {
         Bundle extrasBundle = intentExtras.getExtras();
         if (!(extrasBundle == null) && !(extrasBundle.isEmpty())) {
             int id = extrasBundle.getInt("id");
+
             ContactManager cm = ContactManager.getInstance(this);
             Contact contact = cm.getContactById(id);
 
@@ -75,6 +77,13 @@ public class EditContact extends Activity {
                 String textSocialType = editSocialType.getText().toString();
                 String textSocial = editSocial.getText().toString();
 
+                Log.i("Edit Contact", "ID: " + "" +
+                        " First Name: " + textFirstName +
+                        " Last Name: " + textLastName +
+                        " Title: " + textTitle +
+                        " Phone: " + textPhoneType + "-" + textPhoneNumber +
+                        " Email:" + textEmailType + "-" + textEmailAddress +
+                        "Social:" + textSocialType + "-" + textSocial);
             }
         });
 
