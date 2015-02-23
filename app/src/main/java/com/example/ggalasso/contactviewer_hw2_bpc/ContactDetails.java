@@ -15,7 +15,7 @@ import android.widget.TextView;
 
 
 public class ContactDetails extends Activity {
-
+    int contactId;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,6 +25,7 @@ public class ContactDetails extends Activity {
         Bundle extrasBundle = intentExtras.getExtras();
         if (!(extrasBundle == null) && !(extrasBundle.isEmpty())) {
             int id = extrasBundle.getInt("id");
+            contactId = id;
             ContactManager cm = ContactManager.getInstance(this);
             Contact contact = cm.getContactById(id);
 
@@ -81,7 +82,7 @@ public class ContactDetails extends Activity {
     private void openEdit(){
 
         ContactManager cm = ContactManager.getInstance(this);
-        Contact contact = cm.getContactById(1);
+        Contact contact = cm.getContactById(contactId);
         Bundle contactInfo = new Bundle();
         contactInfo.putInt("id", contact.getId());
 
