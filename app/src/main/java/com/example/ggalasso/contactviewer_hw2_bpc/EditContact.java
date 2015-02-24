@@ -11,15 +11,42 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
+import com.google.gson.GsonBuilder;
+import com.google.gson.Gson;
+
+import org.apache.http.HttpEntity;
+import org.apache.http.HttpResponse;
+import org.apache.http.HttpStatus;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.DefaultHttpClient;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.Reader;
 
 
 public class EditContact extends Activity {
 
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
+        String urlStr = "http://contacts.tinyapollo.com/contacts?key=totally";
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_contact);
+
+        InputStream source = retrieveStream(urlStr);
+        Gson gson = new Gson();
+        Reader reader = new InputStreamReader(source);
+        Contact response = gson.fromJson(reader, Contact.class);
+        Toast.makeText(this, response.getFirstName(), Toast.LENGTH_SHORT).show();
+        String name = response.getFirstName();
+        String email = response.getEmailAdd();
+        String phone = response.getPhoneNumber();
+
 
         Intent intentExtras = getIntent();
         Bundle extrasBundle = intentExtras.getExtras();
@@ -84,6 +111,8 @@ public class EditContact extends Activity {
                         " Phone: " + textPhoneType + "-" + textPhoneNumber +
                         " Email:" + textEmailType + "-" + textEmailAddress +
                         "Social:" + textSocialType + "-" + textSocial);
+
+                //Toast.makeText(this,"Contact saved",Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -91,16 +120,7 @@ public class EditContact extends Activity {
             @Override
             public void onClick(View v) {
 
-                editFirstName.setText("");
-                editLastName.setText("");
-                editTitle.setText("");
-                editPhoneType.setText("");
-                editPhoneNumber.setText("");
-                editEmailType.setText("");
-                editEmailAddress.setText("");
-                editSocialType.setText("");
-                editSocial.setText("");
-
+                //Toast.makeText(this,"Changes discarded",Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -130,5 +150,29 @@ public class EditContact extends Activity {
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+
+    private InputStream retrieveStream(String url) {
+        DefaultHttpClient client = new DefaultHttpClient();
+        HttpGet getRequest = new HttpGet(url);
+        try {
+            HttpResponse getResponse = client.execute(getRequest);
+            final int statusCode = getResponse.getStatusLine().getStatusCode();
+            if (statusCode != HttpStatus.SC_OK) {
+                Log.w(getClass().getSimpleName(),
+                        "Error " + statusCode + " for URL " + url);
+                return null;
+            }
+            HttpEntity getResponseEntity = getResponse.getEntity();
+            return getResponseEntity.getContent();
+        }
+
+        catch (IOException e) {
+
+            getRequest.abort();
+            Log.w(getClass().getSimpleName(), "Error for URL " + url, e);
+        }
+        return null;
     }
 }
