@@ -43,7 +43,7 @@ public class ContactManager {
     }
 
     public void setContactList(ArrayList<Contact> contactList) {
-        this.contactList = this.contactList;
+        this.contactList = contactList;
     }
 
     private ArrayList<Contact> createContacts() {
