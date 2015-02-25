@@ -44,7 +44,7 @@ public class EditContact extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_contact);
 
-        String urlEditStr = "http://contacts.tinyapollo.com/contacts?key=totally";
+       /* String urlEditStr = "http://contacts.tinyapollo.com/contacts?key=totally";
         Contact contact = ;
         Gson gson = new Gson();
         String jsonRepresentation = gson.toJson(contact);
@@ -57,7 +57,7 @@ public class EditContact extends Activity {
                     e.printStackTrace();
 
         }
-
+        */
 
 
         Intent intentExtras = getIntent();

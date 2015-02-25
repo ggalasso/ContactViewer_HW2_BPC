@@ -1,13 +1,15 @@
 package com.example.ggalasso.contactviewer_hw2_bpc;
 
-import android.app.ActionBar;
+
 import android.app.ListActivity;
 import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.app.ActionBar;
 import android.support.v4.view.MenuItemCompat;
 import android.util.Log;
+import android.widget.Toast;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -17,36 +19,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.SearchView;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import com.google.gson.Gson;
-
-import org.apache.http.HttpEntity;
-import org.apache.http.HttpResponse;
-import org.apache.http.HttpStatus;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.impl.client.DefaultHttpClient;
-
-import java.io.IOException;
-import java.io.InputStream;
 import java.util.ArrayList;
-/*import android.widget.Toast;
-import com.google.gson.GsonBuilder;
-import com.google.gson.Gson;
-
-import org.apache.http.HttpEntity;
-import org.apache.http.HttpResponse;
-import org.apache.http.HttpStatus;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.impl.client.DefaultHttpClient;
-
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.Reader;
-import java.io.BufferedReader;
-*/
-
 
 
 public class MainActivity extends ListActivity {
@@ -61,16 +34,31 @@ public class MainActivity extends ListActivity {
         setListAdapter(new ContactAdapter(this, R.layout.contact_item, cm.getContactList()));
         //setListAdapter(new ContactAdapter(this, R.layout.contact_item, ContactManager.getAll()));
 
-       /* //fetch through Gson
-        String urlStr = "http://contacts.tinyapollo.com/contacts?key=totally";
-        InputStream source = retrieveStream(urlStr);
-        Gson gson = new Gson();
-        Reader reader = new InputStreamReader(source);
-        Contact response = gson.fromJson(reader, Contact.class);
-        Toast.makeText(this, response.getFirstName(), Toast.LENGTH_SHORT).show();
-        String name = response.getFirstName();
-        String email = response.getEmailAdd();
-        String phone = response.getPhoneNumber();*/
+        if (getIntent() != null) {
+            handleIntent(getIntent());
+        }
+
+    }
+
+    @Override
+    protected void onNewIntent(Intent intent) {
+        handleIntent(intent);
+    }
+
+    /**
+     * Assuming this activity was started with a new intent, process the incoming information and
+     * react accordingly.
+     * @param intent
+     */
+    private void handleIntent(Intent intent) {
+        // Special processing of the incoming intent only occurs if the if the action specified
+        // by the intent is ACTION_SEARCH.
+        // Get the intent, verify the action and get the query
+        Intent intentsearch = getIntent();
+        if (Intent.ACTION_SEARCH.equals(intentsearch.getAction())) {
+            String query = intentsearch.getStringExtra(SearchManager.QUERY);
+            //OnSearch(query);
+        }
     }
 
 
@@ -87,6 +75,7 @@ public class MainActivity extends ListActivity {
         searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
         searchView.setIconifiedByDefault(false); // Do not iconify the widget; expand it by default
 
+
         return true;
     }
 
@@ -100,7 +89,7 @@ public class MainActivity extends ListActivity {
                 openAdd();
                 return true;
             case R.id.action_search:
-                onSearch();
+                //onSearch();
                 return true;
             case R.id.action_settings:
                 return true;
@@ -172,29 +161,6 @@ public class MainActivity extends ListActivity {
         }
     }
 
-/*    private InputStream retrieveStream(String url) {
-        DefaultHttpClient client = new DefaultHttpClient();
-        HttpGet getRequest = new HttpGet(url);
 
-        try {
-            HttpResponse getResponse = client.execute(getRequest);
-            final int statusCode = getResponse.getStatusLine().getStatusCode();
-            if (statusCode != HttpStatus.SC_OK) {
-                Log.w(getClass().getSimpleName(),
-                        "Error " + statusCode + " for URL " + url);
-                return null;
-            }
-            HttpEntity getResponseEntity = getResponse.getEntity();
-            return getResponseEntity.getContent();
-        }
-
-        catch (IOException e) {
-
-            getRequest.abort();
-            Log.w(getClass().getSimpleName(), "Error for URL " + url, e);
-        }
-        return null;
-    }
-*/
 
 }
