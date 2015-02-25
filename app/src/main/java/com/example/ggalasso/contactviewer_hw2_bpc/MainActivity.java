@@ -29,10 +29,8 @@ import org.apache.http.impl.client.DefaultHttpClient;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.Reader;
 import java.util.ArrayList;
-//import android.widget.Toast;
+/*import android.widget.Toast;
 import com.google.gson.GsonBuilder;
 import com.google.gson.Gson;
 
@@ -46,6 +44,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
+import java.io.BufferedReader;
+*/
 
 
 
@@ -61,7 +61,7 @@ public class MainActivity extends ListActivity {
         setListAdapter(new ContactAdapter(this, R.layout.contact_item, cm.getContactList()));
         //setListAdapter(new ContactAdapter(this, R.layout.contact_item, ContactManager.getAll()));
 
-        //fetch through Gson
+       /* //fetch through Gson
         String urlStr = "http://contacts.tinyapollo.com/contacts?key=totally";
         InputStream source = retrieveStream(urlStr);
         Gson gson = new Gson();
@@ -70,7 +70,7 @@ public class MainActivity extends ListActivity {
         Toast.makeText(this, response.getFirstName(), Toast.LENGTH_SHORT).show();
         String name = response.getFirstName();
         String email = response.getEmailAdd();
-        String phone = response.getPhoneNumber();
+        String phone = response.getPhoneNumber();*/
     }
 
 
@@ -172,9 +172,10 @@ public class MainActivity extends ListActivity {
         }
     }
 
-    private InputStream retrieveStream(String url) {
+/*    private InputStream retrieveStream(String url) {
         DefaultHttpClient client = new DefaultHttpClient();
         HttpGet getRequest = new HttpGet(url);
+
         try {
             HttpResponse getResponse = client.execute(getRequest);
             final int statusCode = getResponse.getStatusLine().getStatusCode();
@@ -194,4 +195,6 @@ public class MainActivity extends ListActivity {
         }
         return null;
     }
+*/
+
 }

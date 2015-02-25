@@ -25,6 +25,12 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
+import java.io.FileWriter;
+import java.io.BufferedReader;
+
+
+
+
 
 
 public class EditContact extends Activity {
@@ -38,6 +44,19 @@ public class EditContact extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_contact);
 
+        String urlEditStr = "http://contacts.tinyapollo.com/contacts?key=totally";
+        Contact contact = ;
+        Gson gson = new Gson();
+        String jsonRepresentation = gson.toJson(contact);
+        try {
+            FileWriter Filewriter = new FileWriter(jsonFilePath);
+            Filewriter.write(jsonRepresentation);
+            Filewriter.close();
+
+        } catch (IOException e) {
+                    e.printStackTrace();
+
+        }
 
 
 
@@ -106,6 +125,7 @@ public class EditContact extends Activity {
                         "Social:" + textSocialType + "-" + textSocial);
 
                 //Toast.makeText(this,"Contact saved",Toast.LENGTH_SHORT).show();
+
             }
         });
 
