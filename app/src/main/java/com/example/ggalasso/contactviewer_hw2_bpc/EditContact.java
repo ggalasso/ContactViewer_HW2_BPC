@@ -38,14 +38,7 @@ public class EditContact extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_contact);
 
-        InputStream source = retrieveStream(urlStr);
-        Gson gson = new Gson();
-        Reader reader = new InputStreamReader(source);
-        Contact response = gson.fromJson(reader, Contact.class);
-        Toast.makeText(this, response.getFirstName(), Toast.LENGTH_SHORT).show();
-        String name = response.getFirstName();
-        String email = response.getEmailAdd();
-        String phone = response.getPhoneNumber();
+
 
 
         Intent intentExtras = getIntent();
@@ -153,26 +146,5 @@ public class EditContact extends Activity {
     }
 
 
-    private InputStream retrieveStream(String url) {
-        DefaultHttpClient client = new DefaultHttpClient();
-        HttpGet getRequest = new HttpGet(url);
-        try {
-            HttpResponse getResponse = client.execute(getRequest);
-            final int statusCode = getResponse.getStatusLine().getStatusCode();
-            if (statusCode != HttpStatus.SC_OK) {
-                Log.w(getClass().getSimpleName(),
-                        "Error " + statusCode + " for URL " + url);
-                return null;
-            }
-            HttpEntity getResponseEntity = getResponse.getEntity();
-            return getResponseEntity.getContent();
-        }
 
-        catch (IOException e) {
-
-            getRequest.abort();
-            Log.w(getClass().getSimpleName(), "Error for URL " + url, e);
-        }
-        return null;
-    }
 }
