@@ -3,6 +3,11 @@ package com.example.ggalasso.contactviewer_hw2_bpc;
 /**
  * Created by ggalasso on 2/13/15.
  */
+import com.google.gson.FieldNamingPolicy;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
+
 public class Contact {
 
     public Contact(String firstName, String lastName, String contactTitle, String phoneType, String phoneNumber, String emailType, String emailAdd, String socialType, String social ,int id) {
@@ -29,6 +34,10 @@ public class Contact {
     private String socialType;
     private String social;
     private int id;
+
+   /* Gson gson = new GsonBuilder().
+    setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES).
+    create();*/
 
     public String getFirstName() {
         return firstName;

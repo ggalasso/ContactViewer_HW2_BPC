@@ -2,11 +2,16 @@ package com.example.ggalasso.contactviewer_hw2_bpc;
 
 import android.app.Activity;
 import android.content.Intent;
+//import android.nfc.Tag;
+//import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+//import android.view.View;
+//import android.view.ViewGroup;
 import android.widget.TextView;
+//import android.widget.Toast;
 
 
 public class ContactDetails extends Activity {
@@ -42,6 +47,8 @@ public class ContactDetails extends Activity {
 
             //display the up/back icons on ActionBar
             //getActionBar().setDisplayHomeAsUpEnabled(true);
+
+
         }
     }
 

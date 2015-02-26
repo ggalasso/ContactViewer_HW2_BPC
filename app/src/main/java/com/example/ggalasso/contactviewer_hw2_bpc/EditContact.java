@@ -23,46 +23,30 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
+import java.io.FileWriter;
+import java.io.BufferedReader;
 
 
 public class EditContact extends Activity {
 
+    int Contactid;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
-        String urlStr = "http://contacts.tinyapollo.com/contacts?key=totally";
+
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_contact);
-
-
 
 
         Intent intentExtras = getIntent();
         Bundle extrasBundle = intentExtras.getExtras();
         if (!(extrasBundle == null) && !(extrasBundle.isEmpty())) {
             int id = extrasBundle.getInt("id");
+            Contactid = id;
 
-            ContactManager cm = ContactManager.getInstance(this);
-            Contact contact = cm.getContactById(id);
-
-            ((TextView) findViewById(R.id.first_name_field)).setText(contact.getFirstName());
-            ((TextView) findViewById(R.id.last_name_field)).setText(contact.getLastName());
-            ((TextView) findViewById(R.id.title_field)).setText(contact.getContactTitle());
-            ((TextView) findViewById(R.id.phone_field)).setText(contact.getPhoneType());
-            ((TextView) findViewById(R.id.phone_field2)).setText(contact.getPhoneNumber());
-            ((TextView) findViewById(R.id.email_field)).setText(contact.getEmailType());
-            ((TextView) findViewById(R.id.email_field2)).setText(contact.getEmailAdd());
-            ((TextView) findViewById(R.id.social_field)).setText(contact.getSocialType());
-            ((TextView) findViewById(R.id.social_field2)).setText(contact.getSocial());
-
-            Log.i("Edit Contact", "ID: " + id +
-                    " First Name: " + contact.getFirstName() +
-                    " Last Name: " + contact.getLastName() +
-                    " Title: " + contact.getContactTitle() +
-                    " Phone: " + contact.getPhoneNumber());
-
+            loadContact();
 
         }
 
@@ -104,6 +88,7 @@ public class EditContact extends Activity {
                         "Social:" + textSocialType + "-" + textSocial);
 
                 //Toast.makeText(this,"Contact saved",Toast.LENGTH_SHORT).show();
+
             }
         });
 
@@ -111,7 +96,9 @@ public class EditContact extends Activity {
             @Override
             public void onClick(View v) {
 
-                //Toast.makeText(this,"Changes discarded",Toast.LENGTH_SHORT).show();
+                loadContact();
+
+
             }
         });
 
@@ -134,6 +121,7 @@ public class EditContact extends Activity {
 
         switch (item.getItemId()) {
             case R.id.action_remove:
+
                 return true;
             case R.id.action_settings:
                 //openSettings();
@@ -143,6 +131,37 @@ public class EditContact extends Activity {
         }
     }
 
+    @Override
+    protected void onStop() {
+        super.onStop();
 
 
+    }
+
+    protected void loadContact(){
+
+        ContactManager cm = ContactManager.getInstance(this);
+        Contact contact = cm.getContactById(Contactid);
+
+        ((TextView) findViewById(R.id.first_name_field)).setText(contact.getFirstName());
+        ((TextView) findViewById(R.id.last_name_field)).setText(contact.getLastName());
+        ((TextView) findViewById(R.id.title_field)).setText(contact.getContactTitle());
+        ((TextView) findViewById(R.id.phone_field)).setText(contact.getPhoneType());
+        ((TextView) findViewById(R.id.phone_field2)).setText(contact.getPhoneNumber());
+        ((TextView) findViewById(R.id.email_field)).setText(contact.getEmailType());
+        ((TextView) findViewById(R.id.email_field2)).setText(contact.getEmailAdd());
+        ((TextView) findViewById(R.id.social_field)).setText(contact.getSocialType());
+        ((TextView) findViewById(R.id.social_field2)).setText(contact.getSocial());
+
+
+
+
+        Log.i("Edit Contact", "ID: " + Contactid +
+                " First Name: " + contact.getFirstName() +
+                " Last Name: " + contact.getLastName() +
+                " Title: " + contact.getContactTitle() +
+                " Phone: " + contact.getPhoneNumber());
+
+
+    }
 }
