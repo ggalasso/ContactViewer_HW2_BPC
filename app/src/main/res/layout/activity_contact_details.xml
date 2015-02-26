@@ -73,7 +73,7 @@
         android:id="@+id/contact_details_phone_field2"
         android:layout_below="@id/contact_details_phone_label"
         android:layout_alignParentEnd="true"
-        android:layout_marginEnd="32dp" />
+        android:layout_margin="12dp" />
 
     <TextView
         android:layout_width="match_parent"
@@ -102,7 +102,7 @@
         android:id="@+id/contact_details_email_field2"
         android:layout_below="@id/contact_details_email_label"
         android:layout_alignParentEnd="true"
-        android:layout_marginEnd="32dp"  />
+        android:layout_margin="12dp"  />
 
     <TextView
         android:layout_width="match_parent"
@@ -131,6 +131,6 @@
         android:id="@+id/contact_details_social_field2"
         android:layout_below="@id/contact_details_social_label"
         android:layout_alignParentEnd="true"
-        android:layout_marginEnd="32dp"  />
+        android:layout_margin="12dp"  />
 
 </RelativeLayout>
