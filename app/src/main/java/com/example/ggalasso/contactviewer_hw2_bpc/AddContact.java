@@ -67,20 +67,7 @@ public class AddContact extends Activity {
         buttonCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                addFirstName.setText("");
-                addLastName.setText("");
-                addTitle.setText("");
-                addPhoneType.setText("");
-                addPhoneNumber.setText("");
-                addEmailType.setText("");
-                addEmailAddress.setText("");
-                addSocialType.setText("");
-                addSocial.setText("");
                 finish();
-
-                finish();
-
             }
         });
     }
