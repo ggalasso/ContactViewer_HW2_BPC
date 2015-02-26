@@ -45,10 +45,10 @@
         <activity
             android:name=".EditContact"
             android:label="@string/title_activity_edit_contact"
-            android:parentActivityName=".ContactDetails" >
+            android:parentActivityName=".MainActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".ContactDetails" />
+                android:value=".MainActivity" />
         </activity>
         <activity
             android:name=".SearcheableActivity"

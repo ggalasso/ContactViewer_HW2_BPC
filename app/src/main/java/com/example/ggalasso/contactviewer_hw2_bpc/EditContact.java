@@ -39,7 +39,6 @@ public class EditContact extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_contact);
 
-
         Intent intentExtras = getIntent();
         Bundle extrasBundle = intentExtras.getExtras();
         if (!(extrasBundle == null) && !(extrasBundle.isEmpty())) {
