@@ -69,6 +69,7 @@ public class EditContact extends Activity {
             @Override
             public void onClick(View v) {
 
+
                 String textFirstName = editFirstName.getText().toString();
                 String textLastName = editLastName.getText().toString();
                 String textTitle = editTitle.getText().toString();
@@ -95,6 +96,8 @@ public class EditContact extends Activity {
         buttonCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+        finish();
 
                 loadContact();
 

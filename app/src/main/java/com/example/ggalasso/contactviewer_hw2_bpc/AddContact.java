@@ -77,6 +77,8 @@ public class AddContact extends Activity {
                 addSocialType.setText("");
                 addSocial.setText("");
 
+                finish();
+
             }
         });
     }
