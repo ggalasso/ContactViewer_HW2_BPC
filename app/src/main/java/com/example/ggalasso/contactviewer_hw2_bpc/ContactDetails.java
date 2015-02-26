@@ -11,6 +11,7 @@ import android.view.MenuItem;
 //import android.view.View;
 //import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 //import android.widget.Toast;
 
 
@@ -56,6 +57,7 @@ public class ContactDetails extends Activity {
                 return true;
             case R.id.action_remove:
                 deleteContact();
+                Toast.makeText(this,"Contact deleted",Toast.LENGTH_SHORT).show();
                 return true;
             case R.id.action_settings:
                 //openSettings();
