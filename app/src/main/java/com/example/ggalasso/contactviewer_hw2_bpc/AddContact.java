@@ -47,7 +47,6 @@ public class AddContact extends Activity {
 
                 Contact c = new Contact(textFirstName,textLastName, textTitle, textPhoneType, textPhoneNumber, textEmailType, textEmailAddress, textSocialType, textSocial, 12);
                 ContactManager cm = ContactManager.getInstance(v.getContext());
-
                 cm.addContact(c);
 
 
@@ -59,7 +58,7 @@ public class AddContact extends Activity {
                         " Email:" + textEmailType + "-" + textEmailAddress +
                         "Social:" + textSocialType + "-" + textSocial);
 
-
+                finish();
                 }
         });
 
