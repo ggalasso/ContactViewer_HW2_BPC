@@ -92,15 +92,9 @@ public class ContactDetails extends Activity {
     }
 
     private void deleteContact() {
-        //Intent intentExtras = getIntent();
-        //Bundle extrasBundle = intentExtras.getExtras();
-        //if (!(extrasBundle == null) && !(extrasBundle.isEmpty())) {
-        //    int id = extrasBundle.getInt("id");
-        //    contactId = id;
-            ContactManager cm = ContactManager.getInstance(this);
-            cm.deleteContactById(contactId);
-            Log.i("ContactDetails.java", "DELETE TRY!!!!" + contactId + " deleted!\n");
-        //}
+        ContactManager cm = ContactManager.getInstance(this);
+        cm.deleteContactById(contactId);
+        Log.i("ContactDetails.java", "DELETE TRY!!!!" + contactId + " deleted!\n");
         finish();
     }
 

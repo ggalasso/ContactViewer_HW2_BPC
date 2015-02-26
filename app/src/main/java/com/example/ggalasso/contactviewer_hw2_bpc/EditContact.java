@@ -132,16 +132,13 @@ public class EditContact extends Activity {
     }
 
     private void deleteContact() {
-        //Intent intentExtras = getIntent();
-        //Bundle extrasBundle = intentExtras.getExtras();
-        //if (!(extrasBundle == null) && !(extrasBundle.isEmpty())) {
-        //    int id = extrasBundle.getInt("id");
-        //    contactId = id;
         ContactManager cm = ContactManager.getInstance(this);
         cm.deleteContactById(contactId);
-        Log.i("ContactDetails.java", "DELETE TRY!!!!" + contactId + " deleted!\n");
-        //}
-        finish();
+        Log.i("EditDetails.java", "DELETE TRY!!!!" + contactId + " deleted!\n");
+        //finish();
+        Intent i = new Intent(this, MainActivity.class);
+        i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivityForResult(i, 0);
     }
 
     @Override
@@ -177,4 +174,5 @@ public class EditContact extends Activity {
 
 
     }
+
 }
