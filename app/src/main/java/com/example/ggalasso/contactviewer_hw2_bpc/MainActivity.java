@@ -48,48 +48,18 @@ public class MainActivity extends ListActivity {
         // initialize the list view
         setListAdapter(new ContactAdapter(this, R.layout.contact_item, cm.getContactList()));
         //setListAdapter(new ContactAdapter(this, R.layout.contact_item, ContactManager.getAll()));
-        if (getIntent() != null) {
-            handleIntent(getIntent());
-        }
 
     }
 
 
     @Override
-    protected void onNewIntent(Intent intent) {
-        //setIntent(intent);
-        handleIntent(intent);
+    protected void onResume() {
+        super.onResume();
+        ContactManager cm = ContactManager.getInstance(this);
+        ContactAdapter ca = new ContactAdapter(this, R.layout.contact_item, cm.getContactList());
+        ca.notifyDataSetChanged();
+        setListAdapter(ca);
     }
-
-
-
-    /**
-     * Assuming this activity was started with a new intent, process the incoming information and
-     * react accordingly.
-     * @param intent
-     */
-
-    private void handleIntent(Intent intent) {
-        // Special processing of the incoming intent only occurs if the if the action specified
-        // by the intent is ACTION_SEARCH.
-        // Get the intent, verify the action and get the query
-        Intent intentSearch = getIntent();
-        if (Intent.ACTION_SEARCH.equals(intentSearch.getAction())) {
-            String query = intentSearch.getStringExtra(SearchManager.QUERY);
-            // We need to create a bundle containing the query string to send along to the
-            // ContactManager, which will be handling querying the database and returning results.
-            Bundle bundle = new Bundle();
-            bundle.putString(QUERY_KEY, query);
-
-
-            //ContactablesLoaderCallbacks loaderCallbacks = new ContactablesLoaderCallbacks(this);
-
-            // Start the loader with the new query, and an object that will handle all callbacks.
-            //getLoaderManager().restartLoader(CONTACT_QUERY_LOADER, bundle, loaderCallbacks);
-        }
-
-    }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
