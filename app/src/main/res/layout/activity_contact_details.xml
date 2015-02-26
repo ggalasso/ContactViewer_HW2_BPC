@@ -9,141 +9,119 @@
     android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context="com.example.ggalasso.contactviewer_hw2_bpc.ContactDetails">
 
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:text="First Name"
-        android:ems="10"
-        android:id="@+id/contact_details_first_name_field"
-        android:layout_alignParentRight="true"
-        android:editable="true" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:text="Last Name"
-        android:ems="10"
-        android:id="@+id/contact_details_last_name_field"
-        android:layout_below="@id/contact_details_first_name_field"
-        android:layout_alignParentRight="true"
-        android:editable="true" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:id="@+id/contact_details_title_field"
-        android:text="Title"
-        android:layout_below="@id/contact_details_last_name_field"
-        android:layout_alignParentRight="true"
-        android:layout_alignEnd="@id/contact_details_last_name_field"
-        android:editable="true" />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/light_gray"
-        android:textStyle="bold"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Phone"
-        android:id="@+id/contact_details_phone_label"
-        android:layout_below="@id/contact_details_title_field"
-        android:layout_alignParentStart="true"
-        android:layout_alignEnd="@id/contact_details_title_field" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="phone"
-        android:ems="5"
-        android:id="@+id/contact_details_phone_field"
-        android:layout_below="@id/contact_details_phone_label"
-        android:layout_alignParentLeft="true"
-        android:editable="true" />
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="phone"
-        android:ems="10"
-        android:id="@+id/contact_details_phone_field2"
-        android:layout_below="@id/contact_details_phone_label"
-        android:layout_alignParentRight="true"
-        android:layout_marginRight="32dp"
-        android:editable="true" />
-
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/light_gray"
-        android:textStyle="bold"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Email"
-        android:id="@+id/contact_details_email_label"
-        android:layout_below="@id/contact_details_phone_field"
-        android:layout_alignParentStart="true" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textEmailAddress"
-        android:ems="5"
-        android:id="@+id/contact_details_email_field"
-        android:layout_below="@id/contact_details_email_label"
-        android:layout_alignParentLeft="true"
-        android:editable="true" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textEmailAddress"
-        android:ems="10"
-        android:id="@+id/contact_details_email_field2"
-        android:layout_below="@id/contact_details_email_label"
-        android:layout_alignParentRight="true"
-        android:layout_marginRight="32dp"
-        android:editable="true" />
-
-
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/light_gray"
-        android:textStyle="bold"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Social"
-        android:id="@+id/contact_details_social_label"
-        android:layout_below="@id/contact_details_email_field"
-        android:layout_alignParentStart="true"/>
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="5"
-        android:id="@+id/contact_details_social_field"
-        android:layout_below="@id/contact_details_social_label"
-        android:layout_alignParentLeft="true"
-        android:editable="true" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:id="@+id/contact_details_social_field2"
-        android:layout_below="@id/contact_details_social_label"
-        android:layout_alignParentRight="true"
-        android:layout_marginRight="32dp"
-        android:editable="true" />
-
-
     <ImageView
         android:layout_width="90dp"
         android:layout_height="90dp"
         android:id="@+id/contact_person"
         android:src="@drawable/ic_action_person"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:id="@+id/contact_details_first_name_field"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:id="@+id/contact_details_last_name_field"
+        android:layout_below="@id/contact_details_first_name_field"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:id="@+id/contact_details_title_field"
+        android:layout_below="@id/contact_details_last_name_field"
+        android:layout_alignEnd="@id/contact_details_last_name_field"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/light_gray"
+        android:text="Phone"
+        android:textStyle="bold"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:id="@+id/contact_details_phone_label"
+        android:layout_below="@+id/contact_person"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="5"
+        android:id="@+id/contact_details_phone_field"
+        android:layout_below="@id/contact_details_phone_label"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:id="@+id/contact_details_phone_field2"
+        android:layout_below="@id/contact_details_phone_label"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="32dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/light_gray"
+        android:text="Email"
+        android:textStyle="bold"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:id="@+id/contact_details_email_label"
+        android:layout_below="@id/contact_details_phone_field"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="5"
+        android:id="@+id/contact_details_email_field"
+        android:layout_below="@id/contact_details_email_label"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:id="@+id/contact_details_email_field2"
+        android:layout_below="@id/contact_details_email_label"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="32dp"  />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/light_gray"
+        android:text="Social"
+        android:textStyle="bold"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:id="@+id/contact_details_social_label"
+        android:layout_below="@+id/contact_details_email_field"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="5"
+        android:id="@+id/contact_details_social_field"
+        android:layout_below="@id/contact_details_social_label"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:id="@+id/contact_details_social_field2"
+        android:layout_below="@id/contact_details_social_label"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="32dp"  />
 
 </RelativeLayout>
