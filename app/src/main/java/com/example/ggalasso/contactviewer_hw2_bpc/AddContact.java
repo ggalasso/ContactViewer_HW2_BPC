@@ -45,8 +45,9 @@ public class AddContact extends Activity {
                 String textSocialType = addSocialType.getText().toString();
                 String textSocial = addSocial.getText().toString();
 
-                Contact c = new Contact(textFirstName,textLastName, textTitle, textPhoneType, textPhoneNumber, textEmailType, textEmailAddress, textSocialType, textSocial, 12);
+
                 ContactManager cm = ContactManager.getInstance(v.getContext());
+                Contact c = new Contact(textFirstName,textLastName, textTitle, textPhoneType, textPhoneNumber, textEmailType, textEmailAddress, textSocialType, textSocial, cm.getNextId());
                 cm.addContact(c);
 
 

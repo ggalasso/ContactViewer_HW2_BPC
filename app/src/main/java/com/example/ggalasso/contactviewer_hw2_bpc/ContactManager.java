@@ -179,7 +179,7 @@ public class ContactManager {
             ArrayList<Contact> myList = new Gson().fromJson(json, listType);
 
             for (Contact c : myList) {
-                Log.i("Contact:", c.getFirstName());
+                Log.i("Contact:", c.getFirstName() + " ID: " + c.getId());
             }
 
             setContactList(myList);
@@ -187,5 +187,15 @@ public class ContactManager {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public int getNextId() {
+        Integer nextID = 0;
+        for (Contact c : getContactList()) {
+            if (c.getId() > nextID) {
+                nextID = c.getId();
+            }
+        }
+        return nextID + 1;
     }
 }
