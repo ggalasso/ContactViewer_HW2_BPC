@@ -26,30 +26,15 @@ public class ContactDetails extends Activity {
         if (!(extrasBundle == null) && !(extrasBundle.isEmpty())) {
             int id = extrasBundle.getInt("id");
             contactId = id;
-            ContactManager cm = ContactManager.getInstance(this);
-            Contact contact = cm.getContactById(id);
-
-            ((TextView) findViewById(R.id.contact_details_first_name_field)).setText(contact.getFirstName());
-            ((TextView) findViewById(R.id.contact_details_last_name_field)).setText(contact.getLastName());
-            ((TextView) findViewById(R.id.contact_details_title_field)).setText(contact.getContactTitle());
-            ((TextView) findViewById(R.id.contact_details_phone_field)).setText(contact.getPhoneType());
-            ((TextView) findViewById(R.id.contact_details_phone_field2)).setText(contact.getPhoneNumber());
-            ((TextView) findViewById(R.id.contact_details_email_field)).setText(contact.getEmailType());
-            ((TextView) findViewById(R.id.contact_details_email_field2)).setText(contact.getEmailAdd());
-            ((TextView) findViewById(R.id.contact_details_social_field)).setText(contact.getSocialType());
-            ((TextView) findViewById(R.id.contact_details_social_field2)).setText(contact.getSocial());
-
-            Log.i("ContactDetails", "ID: " + id +
-                    " First Name: " + contact.getFirstName() +
-                    " Last Name: " + contact.getLastName() +
-                    " Title: " + contact.getContactTitle() +
-                    " Phone: " + contact.getPhoneNumber());
-
-            //display the up/back icons on ActionBar
-            //getActionBar().setDisplayHomeAsUpEnabled(true);
-
+            loadContact();
 
         }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        loadContact();
     }
 
     @Override
@@ -96,6 +81,27 @@ public class ContactDetails extends Activity {
         cm.deleteContactById(contactId);
         Log.i("ContactDetails.java", "DELETE TRY!!!!" + contactId + " deleted!\n");
         finish();
+    }
+    private void loadContact(){
+        ContactManager cm = ContactManager.getInstance(this);
+        Contact contact = cm.getContactById(contactId);
+
+        ((TextView) findViewById(R.id.contact_details_first_name_field)).setText(contact.getFirstName());
+        ((TextView) findViewById(R.id.contact_details_last_name_field)).setText(contact.getLastName());
+        ((TextView) findViewById(R.id.contact_details_title_field)).setText(contact.getContactTitle());
+        ((TextView) findViewById(R.id.contact_details_phone_field)).setText(contact.getPhoneType());
+        ((TextView) findViewById(R.id.contact_details_phone_field2)).setText(contact.getPhoneNumber());
+        ((TextView) findViewById(R.id.contact_details_email_field)).setText(contact.getEmailType());
+        ((TextView) findViewById(R.id.contact_details_email_field2)).setText(contact.getEmailAdd());
+        ((TextView) findViewById(R.id.contact_details_social_field)).setText(contact.getSocialType());
+        ((TextView) findViewById(R.id.contact_details_social_field2)).setText(contact.getSocial());
+
+        Log.i("ContactDetails", "ID: " + contactId +
+                " First Name: " + contact.getFirstName() +
+                " Last Name: " + contact.getLastName() +
+                " Title: " + contact.getContactTitle() +
+                " Phone: " + contact.getPhoneNumber());
+
     }
 
 }

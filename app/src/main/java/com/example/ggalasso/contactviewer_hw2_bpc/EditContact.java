@@ -80,7 +80,7 @@ public class EditContact extends Activity {
                 String textSocialType = editSocialType.getText().toString();
                 String textSocial = editSocial.getText().toString();
 
-                Log.i("EditContact.java", "Saving Contact... ID: " + "" +
+                Log.i("EditContact.java", "Saving Contact... ID: " + contactId +
                         " First Name: " + textFirstName +
                         " Last Name: " + textLastName +
                         " Title: " + textTitle +
@@ -88,7 +88,15 @@ public class EditContact extends Activity {
                         " Email:" + textEmailType + "-" + textEmailAddress +
                         "Social:" + textSocialType + "-" + textSocial);
 
-                //Toast.makeText(this,"Contact saved",Toast.LENGTH_SHORT).show();
+                    ContactManager cm = ContactManager.getInstance(v.getContext());
+                    cm.deleteContactById(contactId);
+
+                    Contact c = new Contact(textFirstName,textLastName,textTitle,textPhoneType,textPhoneNumber, textEmailType, textEmailAddress,textSocialType,textSocial,contactId);
+                    cm.addContact(c);
+
+                    Toast.makeText(v.getContext(),"Contact saved",Toast.LENGTH_SHORT).show();
+
+                    finish();
 
             }
         });
@@ -97,7 +105,7 @@ public class EditContact extends Activity {
             @Override
             public void onClick(View v) {
 
-        finish();
+                finish();
 
                 loadContact();
 
