@@ -8,6 +8,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 
 public class AddContact extends Activity {
@@ -49,7 +50,7 @@ public class AddContact extends Activity {
                 ContactManager cm = ContactManager.getInstance(v.getContext());
                 Contact c = new Contact(textFirstName,textLastName, textTitle, textPhoneType, textPhoneNumber, textEmailType, textEmailAddress, textSocialType, textSocial, cm.getNextId());
                 cm.addContact(c);
-
+                Toast.makeText(v.getContext(), "Contact saved", Toast.LENGTH_SHORT).show();
 
                 Log.i("Add Contact", "ID: " + "" +
                         " First Name: " + textFirstName +
@@ -76,6 +77,7 @@ public class AddContact extends Activity {
                 addEmailAddress.setText("");
                 addSocialType.setText("");
                 addSocial.setText("");
+                finish();
 
                 finish();
 
