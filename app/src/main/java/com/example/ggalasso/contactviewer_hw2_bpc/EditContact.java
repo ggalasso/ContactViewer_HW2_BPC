@@ -104,12 +104,8 @@ public class EditContact extends Activity {
         buttonCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 finish();
-
-                loadContact();
-
-
+                //loadContact();
             }
         });
 
