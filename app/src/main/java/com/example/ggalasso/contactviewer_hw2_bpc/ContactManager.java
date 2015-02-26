@@ -198,4 +198,14 @@ public class ContactManager {
         }
         return nextID + 1;
     }
+
+    public void deleteContactById(Integer id) {
+        Contact c = getContactById(id);
+        getContactList().remove(c);
+        try {
+            saveGson(context);
+        } catch (IOException ie) {
+            Log.i("ContactManager", "Caught IO exception during delete:" + ie.getMessage());
+        }
+    }
 }

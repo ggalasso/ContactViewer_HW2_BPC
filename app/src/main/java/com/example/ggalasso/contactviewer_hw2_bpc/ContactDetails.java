@@ -52,7 +52,6 @@ public class ContactDetails extends Activity {
         }
     }
 
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -71,6 +70,7 @@ public class ContactDetails extends Activity {
                 openEdit();
                 return true;
             case R.id.action_remove:
+                deleteContact();
                 return true;
             case R.id.action_settings:
                 //openSettings();
@@ -90,4 +90,18 @@ public class ContactDetails extends Activity {
         intent.putExtras(contactInfo);
         startActivity(intent);
     }
+
+    private void deleteContact() {
+        Intent intentExtras = getIntent();
+        Bundle extrasBundle = intentExtras.getExtras();
+        if (!(extrasBundle == null) && !(extrasBundle.isEmpty())) {
+            int id = extrasBundle.getInt("id");
+            contactId = id;
+            ContactManager cm = ContactManager.getInstance(this);
+            cm.deleteContactById(id);
+            Log.i("ContactDetails.java", "DELETE TRY!!!!" + id + " deleted!\n");
+        }
+        finish();
+    }
+
 }
