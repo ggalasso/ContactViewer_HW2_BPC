@@ -61,6 +61,7 @@
         android:inputType="text"
         android:ems="5"
         android:id="@+id/phone_field"
+        android:hint="Type"
         android:layout_below="@id/phone_label"
         android:layout_alignParentLeft="true"
         android:editable="true" />
@@ -70,6 +71,7 @@
         android:inputType="phone"
         android:ems="10"
         android:id="@+id/phone_field2"
+        android:hint="Phone Number"
         android:layout_below="@id/phone_label"
         android:layout_alignParentRight="true"
         android:layout_marginRight="32dp"
@@ -113,6 +115,7 @@
         android:inputType="textEmailAddress"
         android:ems="5"
         android:id="@+id/email_field"
+        android:hint="Type"
         android:layout_below="@id/email_label"
         android:layout_alignParentLeft="true"
         android:editable="true" />
@@ -123,6 +126,7 @@
         android:inputType="textEmailAddress"
         android:ems="10"
         android:id="@+id/email_field2"
+        android:hint="Email Address"
         android:layout_below="@id/email_label"
         android:layout_alignParentRight="true"
         android:layout_marginRight="32dp"
@@ -165,6 +169,7 @@
         android:layout_height="wrap_content"
         android:ems="5"
         android:id="@+id/social_field"
+        android:hint="Type"
         android:layout_below="@id/social_label"
         android:layout_alignParentLeft="true"
         android:editable="true" />
@@ -174,6 +179,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:id="@+id/social_field2"
+        android:hint="Social Media"
         android:layout_below="@id/social_label"
         android:layout_alignParentRight="true"
         android:layout_marginRight="32dp"
