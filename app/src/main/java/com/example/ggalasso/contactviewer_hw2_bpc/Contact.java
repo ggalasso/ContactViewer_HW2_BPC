@@ -1,8 +1,12 @@
 package com.example.ggalasso.contactviewer_hw2_bpc;
 //Pankaj
+
+import java.util.Comparator;
+
 /**
  * Created by ggalasso on 2/13/15.
  */
+
 public class Contact {
 
     public Contact(String firstName, String lastName, String contactTitle, String phoneType, String phoneNumber, String emailType, String emailAdd, String socialType, String social ,int id) {
@@ -110,4 +114,13 @@ public class Contact {
     public void setId(int id) {
         this.id = id;
     }
+
+    public static Comparator<Contact> contactComparator = new Comparator<Contact>() {
+
+        public int compare(Contact c1, Contact c2) {
+            String contactName1 = c1.getFirstName().toUpperCase();
+            String contactName2 = c2.getFirstName().toUpperCase();
+            return contactName1.compareTo(contactName2);
+        }
+    };
 }

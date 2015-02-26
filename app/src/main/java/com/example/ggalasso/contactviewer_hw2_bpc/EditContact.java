@@ -11,44 +11,24 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-import com.google.gson.Gson;
-
-import org.apache.http.HttpEntity;
-import org.apache.http.HttpResponse;
-import org.apache.http.HttpStatus;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.impl.client.DefaultHttpClient;
-
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.Reader;
-import java.io.FileWriter;
-import java.io.BufferedReader;
 
 
 public class EditContact extends Activity {
 
-    int contactId;
+    private int contactId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
-
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_contact);
 
         Intent intentExtras = getIntent();
         Bundle extrasBundle = intentExtras.getExtras();
         if (!(extrasBundle == null) && !(extrasBundle.isEmpty())) {
-            int id = extrasBundle.getInt("id");
-            contactId = id;
-
+            contactId = extrasBundle.getInt("id");
             loadContact();
-
         }
-
 
         final EditText editFirstName = (EditText) findViewById(R.id.first_name_field);
         final EditText editLastName = (EditText) findViewById(R.id.last_name_field);
@@ -67,8 +47,6 @@ public class EditContact extends Activity {
         buttonSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-
                 String textFirstName = editFirstName.getText().toString();
                 String textLastName = editLastName.getText().toString();
                 String textTitle = editTitle.getText().toString();
@@ -88,15 +66,10 @@ public class EditContact extends Activity {
                         "Social:" + textSocialType + "-" + textSocial);
 
                     ContactManager cm = ContactManager.getInstance(v.getContext());
-                    cm.deleteContactById(contactId);
+                    cm.setContact(textFirstName,textLastName,textTitle,textPhoneType,textPhoneNumber, textEmailType, textEmailAddress,textSocialType,textSocial,contactId);
 
-                    Contact c = new Contact(textFirstName,textLastName,textTitle,textPhoneType,textPhoneNumber, textEmailType, textEmailAddress,textSocialType,textSocial,contactId);
-                    cm.addContact(c);
-
-                    Toast.makeText(v.getContext(),"Contact saved",Toast.LENGTH_SHORT).show();
-
+                    Toast.makeText(v.getContext(),"Contact " + contactId + " saved",Toast.LENGTH_SHORT).show();
                     finish();
-
             }
         });
 
@@ -104,7 +77,6 @@ public class EditContact extends Activity {
             @Override
             public void onClick(View v) {
                 finish();
-                //loadContact();
             }
         });
 
@@ -123,8 +95,6 @@ public class EditContact extends Activity {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
         switch (item.getItemId()) {
             case R.id.action_remove:
                 deleteContact();

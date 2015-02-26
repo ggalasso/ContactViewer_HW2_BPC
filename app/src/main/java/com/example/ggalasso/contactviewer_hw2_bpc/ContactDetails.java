@@ -21,10 +21,8 @@ public class ContactDetails extends Activity {
        Intent intentExtras = getIntent();
         Bundle extrasBundle = intentExtras.getExtras();
         if (!(extrasBundle == null) && !(extrasBundle.isEmpty())) {
-            int id = extrasBundle.getInt("id");
-            contactId = id;
+            contactId = extrasBundle.getInt("id");
             loadContact();
-
         }
     }
 

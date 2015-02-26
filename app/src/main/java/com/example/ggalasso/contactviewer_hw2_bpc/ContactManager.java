@@ -1,7 +1,6 @@
 package com.example.ggalasso.contactviewer_hw2_bpc;
 
 import android.content.Context;
-import android.os.Environment;
 import android.util.Log;
 
 import com.google.gson.Gson;
@@ -17,20 +16,18 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
-import java.util.Iterator;
+import java.util.Collections;
 
 /**
  * Created by ggalasso on 2/21/15.
  */
 public class ContactManager {
 
-    private Gson gson;
     private final String FILENAME = "contact_data.txt";
-    private File file;
 
     private static ContactManager ourInstance = null;
     private Context context;
-    private ArrayList<Contact> contactList = new ArrayList<Contact>();
+    private ArrayList<Contact> contactList = new ArrayList<>();
 
     public static ContactManager getInstance(Context context) {
         if (ourInstance == null) {
@@ -59,10 +56,7 @@ public class ContactManager {
     }
 
     public Contact getContactById(int id) {
-        ArrayList<Contact> myContactList = getContactList();
-        Iterator<Contact> itr = myContactList.iterator();
-        while (itr.hasNext()) {
-            Contact c = itr.next();
+        for (Contact c : getContactList()) {
             if (c.getId() == id) {
                 //Log.i("ContactManager", "Found contact ID: " + c.getId() + "\n");
                 return c;
@@ -72,6 +66,7 @@ public class ContactManager {
     }
 
     public ArrayList<Contact> getContactList() {
+        Collections.sort(contactList, Contact.contactComparator);
         return contactList;
     }
 
@@ -154,6 +149,27 @@ public class ContactManager {
             saveGson(context);
         } catch (IOException ie) {
             Log.i("ContactManager", "Caught IO exception during delete:" + ie.getMessage());
+        }
+    }
+
+    public void setContact(String textFirstName, String textLastName, String textTitle,
+                           String textPhoneType, String textPhoneNumber, String textEmailType,
+                           String textEmailAddress, String textSocialType, String textSocial,
+                           Integer contactId) {
+        Contact c = getContactById(contactId);
+        if(!c.getFirstName().equals(textFirstName)) {c.setFirstName(textFirstName);}
+        if(!c.getLastName().equals(textLastName)) {c.setLastName(textLastName);}
+        if(!c.getContactTitle().equals(textTitle)) {c.setContactTitle(textTitle);}
+        if(!c.getPhoneType().equals(textPhoneType)) {c.setPhoneType(textPhoneType);}
+        if(!c.getPhoneNumber().equals(textPhoneNumber)) {c.setPhoneNumber(textPhoneNumber);}
+        if(!c.getEmailType().equals(textEmailType)) {c.setEmailType(textEmailType);}
+        if(!c.getEmailAdd().equals(textEmailAddress)) {c.setEmailAdd(textEmailAddress);}
+        if(!c.getSocialType().equals(textSocialType)) {c.setSocialType(textSocialType);}
+        if(!c.getSocial().equals(textSocial)) {c.setSocial(textSocial);}
+        try {
+            saveGson(this.context);
+        } catch (IOException ie) {
+            Log.i("ContactManager", "Caught IO exception during edit save:" + ie.getMessage());
         }
     }
 }
