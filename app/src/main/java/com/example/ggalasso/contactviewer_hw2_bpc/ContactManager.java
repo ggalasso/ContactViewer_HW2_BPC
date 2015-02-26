@@ -109,57 +109,6 @@ public class ContactManager {
         fOut.close();
     }
 
-
-    private void saveContactsToFile(Context context) {
-
-        String s = gson.toJson(this.contactList);
-        Log.i("ContactManager.java", "Saving Contacts List to File...");
-        Log.i("ContactManager.java", s);
-        FileOutputStream outputStream;
-
-        try {
-            outputStream = context.openFileOutput(FILENAME, Context.MODE_PRIVATE);
-            outputStream.write(s.getBytes());
-            outputStream.close();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-
-    private void readContactsFromFile() {
-
-        try {
-            //FileInputStream fis = this.context.openFileInput("myfile.txt");
-            FileInputStream fis = context.openFileInput(FILENAME);
-
-            InputStreamReader isr = new InputStreamReader(fis);
-            BufferedReader bufferedReader = new BufferedReader(isr);
-            StringBuilder sb = new StringBuilder();
-            String line;
-            while ((line = bufferedReader.readLine()) != null) {
-                sb.append(line);
-            }
-            String json = sb.toString();
-
-            Type listType = new TypeToken<ArrayList<Contact>>() {
-            }.getType();
-
-            //ArrayList<Contact> myList = new Gson().fromJson(json, listType);
-            ArrayList<Contact> myList = gson.fromJson(json, listType);
-
-            for (Contact c : myList) {
-                Log.i("ContactsManager.java", "Reading Contact from file..." + c.getFirstName());
-            }
-
-            setContactList(myList);
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-
     private void readGson(Context ctx) throws IOException {
         try {
             FileInputStream fis = ctx.openFileInput(FILENAME);
@@ -181,7 +130,6 @@ public class ContactManager {
             for (Contact c : myList) {
                 Log.i("Contact:", c.getFirstName() + " ID: " + c.getId());
             }
-
             setContactList(myList);
 
         } catch (Exception e) {
