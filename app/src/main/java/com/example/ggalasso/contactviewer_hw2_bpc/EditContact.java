@@ -29,7 +29,7 @@ import java.io.BufferedReader;
 
 public class EditContact extends Activity {
 
-    int Contactid;
+    int contactId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -44,7 +44,7 @@ public class EditContact extends Activity {
         Bundle extrasBundle = intentExtras.getExtras();
         if (!(extrasBundle == null) && !(extrasBundle.isEmpty())) {
             int id = extrasBundle.getInt("id");
-            Contactid = id;
+            contactId = id;
 
             loadContact();
 
@@ -121,7 +121,7 @@ public class EditContact extends Activity {
 
         switch (item.getItemId()) {
             case R.id.action_remove:
-
+                deleteContact();
                 return true;
             case R.id.action_settings:
                 //openSettings();
@@ -129,6 +129,19 @@ public class EditContact extends Activity {
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    private void deleteContact() {
+        //Intent intentExtras = getIntent();
+        //Bundle extrasBundle = intentExtras.getExtras();
+        //if (!(extrasBundle == null) && !(extrasBundle.isEmpty())) {
+        //    int id = extrasBundle.getInt("id");
+        //    contactId = id;
+        ContactManager cm = ContactManager.getInstance(this);
+        cm.deleteContactById(contactId);
+        Log.i("ContactDetails.java", "DELETE TRY!!!!" + contactId + " deleted!\n");
+        //}
+        finish();
     }
 
     @Override
@@ -141,7 +154,7 @@ public class EditContact extends Activity {
     protected void loadContact(){
 
         ContactManager cm = ContactManager.getInstance(this);
-        Contact contact = cm.getContactById(Contactid);
+        Contact contact = cm.getContactById(contactId);
 
         ((TextView) findViewById(R.id.first_name_field)).setText(contact.getFirstName());
         ((TextView) findViewById(R.id.last_name_field)).setText(contact.getLastName());
@@ -156,7 +169,7 @@ public class EditContact extends Activity {
 
 
 
-        Log.i("Edit Contact", "ID: " + Contactid +
+        Log.i("Edit Contact", "ID: " + contactId +
                 " First Name: " + contact.getFirstName() +
                 " Last Name: " + contact.getLastName() +
                 " Title: " + contact.getContactTitle() +
